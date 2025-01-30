@@ -1,0 +1,16 @@
+{
+  "name": "udp",
+  "version": "1.0.0",
+  "main": "indexjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "description": "",
+  "dependencies": {
+    "dgram": "^1.0.1"
+  }
+}
