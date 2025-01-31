@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; align-items: center; }
+        .container { width: 300px; border: 1px solid #ccc; padding: 10px; }
+        .messages-box { height: 300px; overflow-y: auto; display: flex; flex-direction: column-reverse; border-bottom: 1px solid #ccc; padding: 10px; }
+        .me { text-align: right; color: blue; }
+        .them { text-align: left; color: black; }
+        input { width: calc(100% - 60px); padding: 5px; }
+        button { padding: 5px; }
+    </style>
+</head>
+<body>
+
+    <button onclick="sendMessage('offer')">
+        Offer
+    </button>
+
+    <button onclick="sendMessage('answer')">
+        Answer
+    </button>
+
+    <script src="webRTC.js">
+        
+    </script>
+
+</body>
+</html>
