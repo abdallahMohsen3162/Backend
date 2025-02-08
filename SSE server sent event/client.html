@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSE Example</title>
+</head>
+<body>
+    <h1>Server-Sent Events</h1>
+    <div id="messages"></div>
+
+    <script>
+        try {
+            const eventSource = new EventSource('https://muddy-florentine-celsius.glitch.me/events');
+            
+            eventSource.onmessage = (event) => {
+                console.log('EventSource created');
+                const data = JSON.parse(event.data);
+                const messageDiv = document.getElementById('messages');
+                const newMessage = document.createElement('p');
+                newMessage.textContent = data.message;
+                messageDiv.appendChild(newMessage);
+            };
+            
+            eventSource.onerror = () => {
+                console.error('SSE connection error');
+            };
+        } catch (error) {
+            console.error('Error creating SSE connection:', error);
+        }
+    </script>
+</body>
+</html>

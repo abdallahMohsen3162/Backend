@@ -30,30 +30,33 @@ function test() {
 
 // Handle all incoming messages
 socket.on("notification", async (msg) => {
-    console.log("Received message:", msg);
+    // console.log("Received message:", msg);
 
     if (msg.type === "offer") {
-        console.log("Processing offer...");
+        // console.log("Processing offer...");
         await lc.setRemoteDescription(new RTCSessionDescription(msg.data));
 
         const answer = await lc.createAnswer();
         await lc.setLocalDescription(answer);
 
-        console.log("Sending answer...");
+        // console.log("Sending answer...");
         socket.emit("send", { type: "answer", data: answer });
     } 
     
     else if (msg.type === "answer") {
-        console.log("Processing answer...");
+        // console.log("Processing answer...");
         await lc.setRemoteDescription(new RTCSessionDescription(msg.data));
     } 
     
     else if (msg.type === "ice-candidate") {
         try {
             await lc.addIceCandidate(new RTCIceCandidate(msg.data));
-            console.log("Added ICE candidate:", msg.data);
+            // console.log("Added ICE candidate:", msg.data);
         } catch (error) {
             console.error("Error adding ICE candidate:", error);
         }
     }
 });
+
+
+
